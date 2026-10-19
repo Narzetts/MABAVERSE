@@ -1,0 +1,17 @@
+# Folder upload hanya untuk menyajikan berkas statis (foto, dokumen).
+# Skrip apa pun tidak boleh dieksekusi di sini, bahkan bila berhasil lolos masuk.
+
+# 1) Lepas handler skrip dari semua ekstensi berbahaya.
+RemoveHandler .php .php3 .php4 .php5 .php7 .phps .phtml .phar .pl .py .cgi .asp .aspx .jsp .sh .shtml
+RemoveType .php .php3 .php4 .php5 .php7 .phps .phtml .phar .pl .py .cgi .asp .aspx .jsp .sh .shtml
+
+# 2) Bila pun diakses langsung, kirim sebagai teks biasa, bukan dijalankan.
+AddType text/plain .php .php3 .php4 .php5 .php7 .phps .phtml .phar .pl .py .cgi .asp .aspx .jsp .sh .shtml
+
+# 3) Tolak akses langsung ke berkas skrip.
+<FilesMatch "\.(php|php[0-9]|phtml|phar|pl|py|cgi|asp|aspx|jsp|sh|shtml)$">
+    Require all denied
+</FilesMatch>
+
+# Jangan tampilkan daftar file; eksekusi CGI juga dimatikan.
+Options -Indexes -ExecCGI

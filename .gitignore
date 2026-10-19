@@ -1,0 +1,17 @@
+# Konfigurasi lokal dan kredensial (jangan pernah di-commit)
+config/config.local.php
+
+# Penanda installer; biarkan lokal supaya klon baru masih bisa menjalankan install.php
+config/installed.lock
+
+# Data runtime: log error dan hasil backup database
+logs/*.log
+backups/*.sql
+
+# Hasil unggahan pengguna; subfolder dibuat otomatis oleh aplikasi
+uploads/*
+!uploads/.htaccess
+
+# Berkas sistem operasi
+.DS_Store
+Thumbs.db
